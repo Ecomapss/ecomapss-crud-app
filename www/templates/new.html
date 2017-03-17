@@ -1,0 +1,51 @@
+<ion-view title="Cadastrar" ng-controller="MapCtrl as ctrl">
+    <ion-content>
+        <div class="row">
+            <div class="col col-100">
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nome Popular </span>
+                        <input type="text" ng-model="ctrl.tree.nome_pop">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nome Científico </span>
+                        <input type="text" ng-model="ctrl.tree.nome_cie">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span  class="input-label">Outras Info.</span>
+                        <input type="text" ng-model="ctrl.tree.info">
+                    </label>
+                </div>
+                <button ng-click="ctrl.GetPosition()" class="button button-block button-positive">
+                    Pegar Localização
+                </button>
+
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        Latitude:
+                        <p ng-model="ctrl.tree.loc_lat" ng-bind="ctrl.pos.coords.latitude"></p> <br> Longitude:
+                        <p ng-model="ctrl.tree.loc_long" ng-bind="ctrl.pos.coords.longitude">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-50">
+                <button ng-click="ctrl.execute(ctrl.tree, ctrl.pos.coords.latitude, ctrl.pos.coords.longitude)" class="button button-block button-balanced">
+                        Salvar
+                </button>
+            </div>
+            <div class="col col-50">
+                <button class="button button-block button-energized">
+                    Limpar
+                </button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col col-100">
+                <button class="button button-block button-balanced" ng-click="ctrl.deleteDb()">Excluir Base</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
