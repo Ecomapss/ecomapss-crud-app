@@ -1,4 +1,4 @@
-<ion-view title="Cadastrar" ng-controller="MapCtrl as ctrl">
+<ion-view title="Cadastrar">
     <ion-content>
         <div class="row">
             <div class="col col-100">
@@ -36,15 +36,9 @@
                 </button>
             </div>
             <div class="col col-50">
-                <button class="button button-block button-energized">
+                <button ng-click="ctrl.limpar()" class="button button-block button-energized">
                     Limpar
                 </button>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col col-100">
-                <button class="button button-block button-balanced" ng-click="ctrl.deleteDb()">Excluir Base</button>
             </div>
         </div>
     </ion-content>

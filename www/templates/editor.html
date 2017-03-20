@@ -1,12 +1,11 @@
 <ion-view title="Editar" ng-controller="EditorCtrl as ctrl">
     <ion-content>
-        <button class="button button-assertive" ng-click="ctrl.getDados()">Carregar</button>
         <div class="list">
 
             <div class="item item-button-right" ng-repeat="item in ctrl.result track by $index">
-                {{item.nome}}
+                {{item.nome_pop}}
                 <div class="buttons">
-                    <button class="button button-positive">
+                    <button ng-click="ctrl.editar($index)" class="button button-positive">
                         <i class="icon ion-edit"></i>
                     </button>
                     <button class="button button-assertive">
