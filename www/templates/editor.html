@@ -1,14 +1,14 @@
-<ion-view title="Editar" ng-controller="EditorCtrl as ctrl">
+<ion-view title="Editar">
     <ion-content>
+        <button class="button button-block button-positive" ng-click="ctrl.sendData()">Enviar dados</button>
         <div class="list">
-
             <div class="item item-button-right" ng-repeat="item in ctrl.result track by $index">
                 {{item.nome_pop}}
                 <div class="buttons">
                     <button ng-click="ctrl.editar($index)" class="button button-positive">
                         <i class="icon ion-edit"></i>
                     </button>
-                    <button class="button button-assertive">
+                    <button ng-click="ctrl.delete($index)" class="button button-assertive">
                         <i class="ion-trash-a"></i>
                     </button>
                 </div>

@@ -9,31 +9,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
       })
       .state('tab.cadastro', {
         url: '/cadastro',
-        controller: "MapCtrl",
-        controllerAs: "ctrl",
         views: {
           'tab-cadastro': {
-            templateUrl: 'templates/new.html'
+            templateUrl: 'templates/new.html',
+            controller: "MapCtrl as ctrl"
           }
         },
+
+      })      
+      .state('tab.editor', {
+        url: '/editor',
+        views: {
+          'tab-editor': {
+            templateUrl: 'templates/editor.html',
+            controller: "EditorCtrl as ctrl"
+          }
+        }
 
       })
       .state('tab.editar', {
         url: '/editar/:id',
         views: {
-          'tab-editar': {
-            templateUrl: 'templates/new.html'
-          }
-        }
-      })
-      .state('tab.editor', {
-        url: '/editor',
-        views: {
           'tab-editor': {
-            templateUrl: 'templates/editor.html'
+            templateUrl: 'templates/new.html',
+            controller: "EditarCtrl as ctrl",
+            title: "Editar"
           }
         }
-
       })
 
     $urlRouterProvider.otherwise('/tab/cadastro');
