@@ -1,11 +1,25 @@
 angular.module('starter.factory', [])
 
-    .factory('TreeService', ['$cordovaSQLite', '$q', function ($cordovaSQLite, $q) {
+    .factory('TreeService', ['$cordovaSQLite', '$q','$ionicPopup', function ($cordovaSQLite, $q,$ionicPopup) {
         var forest = JSON.parse(window.localStorage.getItem('db_tree') || '[]');
 
         function persistir() {
             window.localStorage.setItem('db_tree', JSON.stringify(forest));
         }
+        function show() {
+            var confirmPopup = $ionicPopup.alert({
+                title: 'Ação',
+                content: 'Item armazenado!'
+            });
+
+            confirmPopup.then(function (res) {
+                if (res) {
+                    console.log('You are sure');
+                } else {
+                    console.log('You are not sure');
+                }
+            });
+        };
 
         return {
             list: function () {
@@ -13,8 +27,8 @@ angular.module('starter.factory', [])
             },
             put: function (tree) {
                 forest.push(tree);
-                alert("Item armazenado");
                 persistir();
+                show();
             },
             get: function (id) {
                 var deferr = $q.defer();
@@ -46,4 +60,17 @@ angular.module('starter.factory', [])
             }
         }
 
+    }])
+
+    .factory('SendData', ['$http', function ($http) {
+        var baseURL = 'http://localhost:3000'
+        return {
+            send: function (tree) {
+                $http.post(baseURL + '/saveData', tree).then(function (res) {
+                    console.log(res);
+                }, function (err) {
+                    console.log(err);
+                })
+            }
+        }
     }])
