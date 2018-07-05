@@ -16,10 +16,11 @@ angular.module('starter.controllers', [])
     self.sendTree = function () {
       var count = TreeService.list();
       for (var i = 0; i < count.length; i++) {
-        var tree = {};
+        var trees = [];
         TreeService.get(i).then(function (data) {
-          tree = data;
-          SendData.send(tree);
+          trees.push(data);
+          console.log(trees)
+          // SendData.send(tree);
         })
       }
     }

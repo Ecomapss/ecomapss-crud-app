@@ -63,10 +63,20 @@ angular.module('starter.factory', [])
     }])
 
     .factory('SendData', ['$http', function ($http) {
-        var baseURL = 'http://localhost:3000'
+        var baseURL = 'http://localhost:9000'
+        var masterKey = 'masterKey'
+        var email = 'devlacerda@gmail.com'
         return {
-            send: function (tree) {
-                $http.post(baseURL + '/saveData', tree).then(function (res) {
+            send: function (data) {
+                var newData = {
+                    access_token: masterKey,
+                    email: email,
+                    data: data
+                } 
+
+                console.log(newData)
+
+                $http.post(baseURL + '/mail', newData).then(function (res) {
                     console.log(res);
                 }, function (err) {
                     console.log(err);

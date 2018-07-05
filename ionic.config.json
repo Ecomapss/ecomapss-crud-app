@@ -1,4 +1,12 @@
 {
   "name": "CrudMap",
-  "app_id": "416a6f4e"
+  "app_id": "416a6f4e",
+  "integrations": {},
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
